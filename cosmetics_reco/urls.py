@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import cosmetics_reco_app.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('skin_result/', cosmetics_reco_app.views.skin_result, name='skin_result'),
+    path('skin_select/', cosmetics_reco_app.views.skin_select, name='skin_select'),
+    path('result1/', cosmetics_reco_app.views.cosmetics_result1, name='cosmetics_result1'),
+    path('result2/', cosmetics_reco_app.views.cosmetics_result2, name='cosmetics_result2'),
+    path('result3/', cosmetics_reco_app.views.cosmetics_result3, name='cosmetics_result3'),
+    path('result4/', cosmetics_reco_app.views.cosmetics_result4, name='cosmetics_result4'),
+    path('result5/', cosmetics_reco_app.views.cosmetics_result5, name='cosmetics_result5'),
 ]

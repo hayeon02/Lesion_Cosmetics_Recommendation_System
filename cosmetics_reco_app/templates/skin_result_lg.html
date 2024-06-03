@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>cosmetics_result4</title>
+    <title>skin_result</title>
     <style>
         {#배경색#}
         body{
@@ -30,15 +30,6 @@
             font-size: 20px;
             margin-top: 15px;
         }
-        {#진한 글씨 - 이름#}
-        .title2{
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        {#보통 글씨 - 부가설명#}
-        .title3{
-            font-size: 14px;
-        }
         {#보통 글씨 - 성분#}
         .info{
             font-size: 16px;
@@ -48,17 +39,22 @@
         .results_box{
             border-radius: 5px;
             background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 10px;
+            min-height: 200px;
+            height: auto;
+            min-width: 300px;
+            width: auto;
         }
         {#사진이 들어갈 위치#}
-        .image{
+        .image_box {
+            width: 100%;
+            max-width: 200px;
+            margin: 10px 0;
+        }
+        {#사진크기#}
+        .image_picture {
+            width: 100%;
             height: auto;
-            margin-bottom: 10px;
-            margin-top: 10px;
+            object-fit: cover;
         }
         {#버튼#}
         button{
@@ -68,8 +64,7 @@
             color: white;
             vertical-align: top;
             background-color: #2E4E75;
-            height: 40px;
-            width: 90px;
+            padding: 10px;
         }
         {#버튼에 마우스를 올렸을때#}
         button:hover{
@@ -87,29 +82,50 @@
         .btn_interval{
             margin-top: 5px;
         }
-        @media screen and (max-width: 768px){
-            .container{
+        {#버튼과 버튼 사이의 공백#}
+        .btn_space{
+            width: 10px;
+            height: auto;
+            display: inline-block;
+        }
+        @media screen and (max-width: 361mm){
+            .container {
                 width: 80%;
                 padding: 10px;
+                min-height: 1400px;
+                margin: 50px auto;
             }
             .title1{
-                font-size: 20px;
-                margin-top: 10px;
+                font-size: 50px;
+                margin-top: 50px;
             }
-            .title2{
-                font-size: 18px;
-            }
-            .title3{
-                width: 80%;
-                font-size: 12px;
+            .results_box {
+                width: 90%;
+                min-height: 500px;
+                margin-top: 30px;
             }
             .info{
-                margin-top: 10px;
-                margin-bottom: 10px;
+                font-size: 30px;
+                margin-top: 200px;
             }
-            .results_box{
+            .image_box {
                 width: 100%;
-                padding: 20px 3px;
+                max-width: 500px;
+                margin-top: 50px;
+            }
+            .image_picture {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            button{
+                font-size: 35px;
+            }
+            .btn_interval{
+                margin-top: 30px;
+            }
+            .btn_space{
+                width: 50px;
             }
         }
     </style>
@@ -117,29 +133,28 @@
 <body>
     <div class="container">
         <div class="title1">
-            <b>화장품 추천 리스트</b>
+            <b>예상 병명은 아래와 같습니다</b>
         </div>
-        <div class="title3">순위와 무관합니다</div>
+        <div class="image_box">
+            <img class="image_picture" src="picture/skin.jfif">
+        </div>
         <div class="title1">
-            <b>화장품5</b>
-        </div>
-        <div class="image">
-            <img src="picture/cosm_ex.png">
+            <b>진단 결과</b>
         </div>
         <div class="results_box">
-            <div class="title2">
-                <b>피지오겔 데일리 모이스쳐 테라피 바디로션</b>
-            </div>
             <div class="info">
-                <br>브랜드: 피지오겔</br>
-                <br>가격: 33,500원</br>
-                <br>성분: 카프릭트라이글리세라이드, 시어버터</br>
+                아토피로 예상됩니다
             </div>
         </div>
-        <div class="btn_interval"></div>
-        <a href="{% url 'skin_select' %}">
-            <button>다시하기</button>
-        </a>
+        <div class="btn_interval">
+            <button>
+                화장품 추천 받기
+            </button>
+            <div class="btn_space"></div>
+            <button>
+                그만하기
+            </button>
+        </div>
     </div>
 </body>
 </html>
